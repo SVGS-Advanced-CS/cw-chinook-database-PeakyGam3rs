@@ -14,13 +14,13 @@ public class Main {
             Connection conn = DriverManager.getConnection(url);
 
             Statement state = conn.createStatement();
-            String query = "SELECT * FROM employees";
+            String query = "SELECT * FROM employees ORDER BY LastName ASC";
             ResultSet results = state.executeQuery(query);
 
             while (results.next()) {
                 String firstName = results.getString("FirstName");
                 String lastName = results.getString("LastName");
-                System.out.println("First Name: " + firstName + "Last Name: " + lastName);
+                System.out.println("First Name: " + firstName + " Last Name: " + lastName);
             }
             conn.close();
         } catch (Exception e) {
