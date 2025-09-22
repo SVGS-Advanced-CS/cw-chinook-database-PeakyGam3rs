@@ -2,7 +2,6 @@ package com.svgs;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 
@@ -12,7 +11,10 @@ public class Main {
 
         try {
             Connection conn = DriverManager.getConnection(url);
-
+            Statement state = conn.createStatement();
+            state.executeUpdate("DELETE FROM employees WHERE employeeId>=11 AND FirstName=='Anthony' AND LastName=='Tyler'");
+            //state.executeUpdate("INSERT INTO employees(FirstName, LastName, EmployeeId) VALUES('Anthony', 'Tyler', 9)");
+            /* 
             Statement state = conn.createStatement();
             String query = "SELECT * FROM employees WHERE EmployeeId==4 ORDER BY LastName ASC";
             ResultSet results = state.executeQuery(query);
@@ -22,6 +24,7 @@ public class Main {
                 String lastName = results.getString("LastName");
                 System.out.println("First Name: " + firstName + " Last Name: " + lastName);
             }
+            */
             conn.close();
         } catch (Exception e) {
             System.out.println(e);
