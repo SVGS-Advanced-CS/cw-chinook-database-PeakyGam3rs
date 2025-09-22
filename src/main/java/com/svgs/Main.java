@@ -14,7 +14,7 @@ public class Main {
             Connection conn = DriverManager.getConnection(url);
 
             Statement state = conn.createStatement();
-            String query = "SELECT * FROM employees ORDER BY LastName ASC";
+            String query = "SELECT * FROM employees WHERE EmployeeId==4 ORDER BY LastName ASC";
             ResultSet results = state.executeQuery(query);
 
             while (results.next()) {
