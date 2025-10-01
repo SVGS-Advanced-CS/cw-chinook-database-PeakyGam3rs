@@ -11,6 +11,10 @@ import java.util.Scanner;
 public class Main {
     private static Connection conn;
     public static void main(String[] args) {
+        // "SELECT albums.Title, artist.Name FROM albums INNER JOIN artists"
+        // + " artist ON albums.artistId=artist.artistId"
+    
+        // 
         createDatabase();
         String url = "jdbc:sqlite:./src/main/resources/users.db";
 
